@@ -60,7 +60,6 @@ const bot = new Telegraf('533773646:AAE_SpgrQ-f0C79JEItux0dWfy9uk0Lq5-Y')
 bot.start((ctx) => {
   var query = con.query("SELECT chat_id, status FROM coffee WHERE chat_id = "+ctx.from.id+"", function (err, result, fields) {
     if (err) throw err;
-    //global.status = result[1].count;
     console.log(result[0]);
     if(result[0] == undefined){
       var sql = "INSERT INTO coffee (chat_id, user_name) VALUES ("+ctx.from.id+", '"+ctx.from.username+"')";
